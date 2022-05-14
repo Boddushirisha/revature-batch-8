@@ -1,0 +1,77 @@
+package com.DataCollectionController;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Scanner;
+
+import com.DataCollection.SortByName;
+import com.DataCollectionEntity.DataUser;
+public class DataCollectionController {
+	private static final Comparator<? super DataUser> SortByName = null;
+	//int j[]=new int[7];
+  // static DataUser ss[]=new DataUser[10];
+	static ArrayList<DataUser> du1=new ArrayList<DataUser>();
+	public void createProfile() {
+		Scanner scan=new Scanner(System.in);
+		System.out.println("enter username");
+		String name=scan.next();
+		System.out.println("enter password");
+		String password=scan.next();
+		System.out.println("enter email");
+		String email=scan.next();
+		System.out.println("enter address");
+		String address=scan.next();
+		DataUser du=new DataUser();
+		du.setName(name);
+		du.setPassword(password);
+		du.setEmail(email);
+		du.setAddress(address);
+		du1.add(du);
+		/*for(int j=0;j<ss.length;j++) {
+			if(ss[j]==null) {
+				ss[j]=du;
+				System.out.println("profile created successfully");
+			}
+		}*/
+		
+		System.out.println("profile created successfully");
+		System.out.println("record is unsorted");
+	}
+
+	public void viewProfile() {
+		/*for(int j=0;j<ss.length;j++) {
+			if(ss[j]!=null) {
+				System.out.println("*********");
+				System.out.println("name is"+ss[j].getName());
+				System.out.println("password is"+ss[j].getPassword());
+				System.out.println("email is"+ss[j].getEmail());
+				System.out.println("Address is"+ss[j].getAddress());
+			}
+				
+		
+	}*/
+		for(DataUser tt:du1){ 
+			if(tt !=null) {
+				System.out.println("********************");
+				System.out.println("name is"+tt.getName());
+				System.out.println("password is"+tt.getPassword());
+				System.out.println("email is"+tt.getEmail());
+				System.out.println("Address is"+tt.getAddress());
+			}
+		}
+		Collections.sort(du1,new SortByName());
+		System.out.println("record sorting based on name");
+		for(DataUser tt:du1){ 
+			if(tt !=null) {
+				System.out.println("********************");
+				System.out.println("name is"+tt.getName());
+				System.out.println("password is"+tt.getPassword());
+				System.out.println("email is"+tt.getEmail());
+				System.out.println("Address is"+tt.getAddress());
+				
+				
+			}
+		}
+
+	}
+}
