@@ -1,0 +1,32 @@
+package com.DataCollection;
+import java.util.Scanner;
+
+import com.DataCollectionController.DataCollectionController;
+public class DataCollectionView {
+
+	public static void main(String[] args) {
+		String s="y";
+		while(s.equals("y")) {
+			System.out.println("********NEW DATA*********");
+			System.out.println("press 1 to create profile");
+			
+			System.out.println("press 2 to view profile");
+			Scanner scan=new Scanner(System.in);
+			System.out.println("enter your choice");
+			int c=scan.nextInt();
+			DataCollectionController dc=new DataCollectionController();
+			switch(c) {
+			case 1:dc.createProfile();
+			      break;
+			case 2:dc.viewProfile();
+			      break;
+			default:System.out.println("wrong choice");
+			}
+			System.out.println("do u want to continue press y/n");
+			s=scan.next();
+		}
+
+	}
+
+}
+
